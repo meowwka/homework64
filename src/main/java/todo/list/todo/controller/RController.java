@@ -16,7 +16,7 @@ public class RController {
     @Autowired
     TaskRepo taskRepo;
 
-    @GetMapping()
+    @GetMapping
     public List<Task> getTasks(){return taskRepo.findAll();}
 
     @GetMapping("/{id}")

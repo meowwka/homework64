@@ -18,7 +18,7 @@ public class DataBasePreloader {
 
     private void save(TaskRepo taskRepo){
         for(int i = 0; i<3; i++){
-            Task tasks = new Task(Generator.makeDescription(), false);
+            Task tasks = new Task(Generator.makeDescription());
             taskRepo.save(tasks);
         }
     }

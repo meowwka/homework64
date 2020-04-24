@@ -12,10 +12,8 @@ public class Task {
     @Id
     private String id = UUID.randomUUID().toString();
     private String taskName;
-    private boolean status;
 
-    public Task(String taskName, boolean status) {
+    public Task(String taskName) {
         this.taskName = taskName;
-        this.status = status;
     }
 }
