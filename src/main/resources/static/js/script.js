@@ -51,7 +51,7 @@ window.addEventListener('load', function () {
 
 var list = document.querySelector('ul');
 list.addEventListener('dblclick', function(ev) {
-    if (ev.target.tagName === 'li') {
+    if (ev.target.tagName === 'LI') {
         ev.target.classList.toggle('checked');
     }
 }, false);
