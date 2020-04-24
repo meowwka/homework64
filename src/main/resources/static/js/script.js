@@ -14,14 +14,16 @@ class Task{
     }
 
 }
+const baseUrl = "http://localhost:8000";
 
 function creatingTask(task){
-let mainUl = document.getElementsByClassName("list");
-let newLi1 = document.createElement("li")
-let newLi = `<li>${task.taskName}</li>`
-mainUl.innerHTML += newLi;
-mainUl.clas
-return newLi;
+let mainUl = document.getElementById("list");
+let newLi1 = document.createElement("li");
+// newLi1.classList.add("decoration")
+let tasks = `${task.taskName}`
+newLi1.innerHTML = tasks;
+mainUl.append(newLi1);
+return newLi1;
 }
 
 async function addingTasks() {
@@ -33,3 +35,26 @@ async function addingTasks() {
         list.append(elem);
     }
 }
+
+window.addEventListener('load', function () {
+    let addButton = document.getElementById("button-addon2");
+    addButton.addEventListener('click', function () {
+        const addForm = document.getElementById("addingForm");
+        let data = new FormData(addForm);
+        fetch(baseUrl, {
+            method:'POST',
+            body: data
+        }).then(r => r.json()).then(data => {
+            window.location.href = baseUrl;
+        });
+
+    })
+
+});
+
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+    if (ev.target.tagName === 'LI') {
+        ev.target.classList.toggle('checked');
+    }
+}, false);

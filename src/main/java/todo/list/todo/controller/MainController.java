@@ -19,7 +19,7 @@ public class MainController {
     return "index";
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @RequestMapping( value = "/",method = RequestMethod.POST)
     public final String addingTask(@RequestParam("taskName") String taskName) {
         Task newTask = new Task(taskName);
         taskRepo.save(newTask);

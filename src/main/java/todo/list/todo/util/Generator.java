@@ -34,7 +34,7 @@ public final class Generator {
     }
 
     public static String makeDescription() {
-        return makeGibberish(20, 10);
+        return makeGibberish(2, 5);
     }
 
     private static String makeGibberish(int randomAmount, int min) {
