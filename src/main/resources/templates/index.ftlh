@@ -15,12 +15,13 @@
         <div id="todo" class="basic input-group mb-3">
             <input type="text"  class="form-control" name="taskName" id="input"  aria-describedby="button-addon2" placeholder="Новое задание..." autofocus>
             <div class="input-group-append">
-            <button id="button-addon2" type="submit" class="btn btn-light  btn-outline-secondary">Добавить</button>
+            <button id="button-addon2" type="submit" class="btn btn-light btn-outline-secondary">Добавить</button>
             </div>
         </div>
     </form>
 
     <ul id="list">
+        <li class="checked">My first Task</li>
 
     </ul>
 </div>

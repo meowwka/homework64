@@ -1,6 +1,8 @@
 'use strict';
+const baseUrl = "http://localhost:8000";
+
 async function getTasks() {
-    let url = "http://localhost:8000/tasks";
+    let url = baseUrl + "/tasks";
     let response = await fetch(url);
     return await response.json();
 }
@@ -8,18 +10,16 @@ async function getTasks() {
 getTasks().then(data => console.log(data));
 
 class Task{
-    constructor(id, taskName) {
+    constructor(id, taskName, status) {
         this.id = id;
         this.taskName = taskName;
+        this.status= status;
     }
-
 }
-const baseUrl = "http://localhost:8000";
 
 function creatingTask(task){
 let mainUl = document.getElementById("list");
 let newLi1 = document.createElement("li");
-// newLi1.classList.add("decoration")
 let tasks = `${task.taskName}`
 newLi1.innerHTML = tasks;
 mainUl.append(newLi1);
@@ -41,20 +41,17 @@ window.addEventListener('load', function () {
     addButton.addEventListener('click', function () {
         const addForm = document.getElementById("addingForm");
         let data = new FormData(addForm);
+        console.log(data);
         fetch(baseUrl, {
             method:'POST',
             body: data
-        }).then(r => r.json()).then(data => {
-            window.location.href = baseUrl;
-        });
-
+        }).then(r => r.json());
     })
-
 });
 
 var list = document.querySelector('ul');
-list.addEventListener('click', function(ev) {
-    if (ev.target.tagName === 'LI') {
+list.addEventListener('dblclick', function(ev) {
+    if (ev.target.tagName === 'li') {
         ev.target.classList.toggle('checked');
     }
 }, false);
