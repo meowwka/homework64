@@ -23,7 +23,7 @@ public class MainController {
     public final String addingTask(@RequestParam("taskName") String taskName) {
         Task newTask = new Task(taskName);
         taskRepo.save(newTask);
-        System.out.println("done");
+        System.out.println("added new task");
         return "succes";
     }
 
